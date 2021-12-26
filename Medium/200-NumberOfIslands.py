@@ -2,7 +2,7 @@ class Solution:
     
     # index 0 in the tuple represents which row,
     # index 1 in the tuple represents which column
-    def dfs(curr: Tuple[int], grid: List[List[str]]) -> int:
+    def dfs(self, curr: Tuple[int], grid: List[List[str]]) -> int:
         m = len(grid)
         n = len(grid[0])
         currRow = curr[0]
@@ -12,16 +12,16 @@ class Solution:
         grid[currRow][currCol] = '0'
         # recurse up if in bounds
         if currRow >= 1 and grid[currRow - 1][currCol] == '1':
-            Solution.dfs(tuple((currRow - 1, currCol)), grid)
+            self.dfs(tuple((currRow - 1, currCol)), grid)
         # recurse left if in bounds
         if currCol >= 1 and grid[currRow][currCol - 1] == '1':
-            Solution.dfs(tuple((currRow, currCol - 1)), grid)
+            self.dfs(tuple((currRow, currCol - 1)), grid)
         # recurse down if in bounds
         if currRow <= m - 2 and grid[currRow + 1][currCol] == '1':
-            Solution.dfs(tuple((currRow + 1, currCol)), grid)
+            self.dfs(tuple((currRow + 1, currCol)), grid)
         # recurse right if in bounds
         if currCol <= n - 2 and grid[currRow][currCol + 1] == '1':
-            Solution.dfs(tuple((currRow, currCol + 1)), grid)
+            self.dfs(tuple((currRow, currCol + 1)), grid)
             
     
     def numIslands(self, grid: List[List[str]]) -> int:
@@ -39,6 +39,6 @@ class Solution:
             for j in range(n):
                 if grid[i][j] == '1':
                     count += 1
-                    Solution.dfs(tuple((i, j)), grid)
+                    self.dfs(tuple((i, j)), grid)
                     
         return count
