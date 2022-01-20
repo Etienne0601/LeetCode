@@ -20,12 +20,11 @@ class Solution:
                 # currA == None and currB != None
                 currA = headB
                 currB = currB.next
+            elif currB is None:
+                # currA != None and currB == None
+                currB = headA
+                currA = currA.next
             else:
-                # currA != None
-                if currB is None:
-                    # currA != None and currB == None
-                    currB = headA
-                else:
-                    # currA != None and currB != None
-                    currB = currB.next
+                # currA != None and currB != None
+                currB = currB.next
                 currA = currA.next
