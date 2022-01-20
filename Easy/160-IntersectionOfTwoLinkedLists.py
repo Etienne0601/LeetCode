@@ -12,10 +12,7 @@ class Solution:
         
         # currA walks through listA and then listB,
         # while currB walks thorugh listB and then listA
-        while True:
-            if currA is currB:
-                return currA
-            
+        while currA is not currB:
             if currA is None:
                 # currA == None and currB != None
                 currA = headB
@@ -28,3 +25,5 @@ class Solution:
                 # currA != None and currB != None
                 currB = currB.next
                 currA = currA.next
+        
+        return currA
